@@ -2,7 +2,7 @@
 import DashboardNavigation from './DashboadNavigation/DashboardNavigation'
 import {Component} from 'react'
 import Pet from '../Pet/Pet'
-
+import * as petService from '../Services/petService'
 
 class Dashboard  extends Component {
     
@@ -10,16 +10,28 @@ class Dashboard  extends Component {
         super(props)
 
         this.state={
-            pets:[]
+            pets:[],
+            currCatecory: 'all'
         }
     }
 
     componentDidMount (){
-        fetch('http://localhost:5000/pets')
-        .then(res=>res.json())
-        .then(data=> this.setState({pets:data}))
-        .catch(err=> console.log(err))
+      petService.getAll()
+      .then(data=> this.setState({pets:data}))
     };
+
+    componentDidUpdate(prevProps){
+
+        if(prevProps.match.params.category ===this.props.match.params.category){
+            return
+        }
+
+        
+        petService.getAll(this.props.match.params.category)
+        .then(data=> 
+            
+            this.setState({pets:data, currCatecory:this.props.match.params.category}))
+    }
 
     render (){
 
