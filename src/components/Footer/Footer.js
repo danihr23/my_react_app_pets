@@ -1,8 +1,8 @@
 
 
-const Footer =()=>{
-    return(
-<footer id="site-footer">
+const Footer = () => {
+    return (
+        <footer id="site-footer">
             <p>@PetMyPet</p>
         </footer>
     )
