@@ -1,20 +1,33 @@
 
+import DashboardNavigation from './DashboadNavigation/DashboardNavigation'
+import {Component} from 'react'
 
-const Dashboard =()=>{
+
+class Dashboard  extends Component {
+    
+    constructor(props){
+        super(props)
+
+        this.state={
+            pets:[]
+        }
+    }
+
+    componentDidMount (){
+        fetch('http://localhost:5000/pets')
+        .then(res=>res.json())
+        .then(data=> this.setState({pets:data}))
+        .catch(err=> console.log(err))
+    };
+
+    render (){
+
+        console.log(this.state.pets);
     return(
 
         <section className="dashboard">
                 <h1>Dashboard</h1>
-                <nav  className="navbar">
-                    <ul>
-                        <li><a href="#">All</a></li>
-                        <li><a href="#">Cats</a></li>
-                        <li><a href="#">Dogs</a></li>
-                        <li><a href="#">Parrots</a></li>
-                        <li><a href="#">Reptiles</a></li>
-                        <li><a href="#">Other</a></li>
-                    </ul>
-                </nav>
+               <DashboardNavigation/>
                 <ul  className="other-pets-list">
                     <li  className="otherPet">
                         <h3>Name: Gosho</h3>
@@ -53,7 +66,8 @@ const Dashboard =()=>{
                 </ul>
             </section>
         
-    );
+        );
+    }
 }
 
 

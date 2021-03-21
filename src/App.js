@@ -6,13 +6,16 @@ import './App.css';
 
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
+import Dashboard from './components/Dashboard/Dashboard'
 
 function App() {
   return (
     <div className="container">
      <Header/>
-      <Route path="/"   component={}  />
-     <h2>Dani</h2>
+     <Switch>
+     <Route path="/" exact  component={Dashboard}  />
+     <Route  path="/categories/:category"  component={Dashboard}/>
+     </Switch>
      <Footer/>
     </div>
   );
