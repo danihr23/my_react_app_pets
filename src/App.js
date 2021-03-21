@@ -1,4 +1,7 @@
 
+import{Route, Link,Switch} from 'react-router-dom'
+
+
 import './App.css';
 
 import Header from './components/Header/Header'
@@ -8,7 +11,7 @@ function App() {
   return (
     <div className="container">
      <Header/>
-
+      <Route path="/"   component={}  />
      <h2>Dani</h2>
      <Footer/>
     </div>
