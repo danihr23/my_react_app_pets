@@ -17,7 +17,9 @@ function App() {
      <Route  path="/categories/:category"  component={Dashboard}/>
      </Switch>
      <Footer/>
-    </div>
+     
+     </div>
+    
   );
 }
 

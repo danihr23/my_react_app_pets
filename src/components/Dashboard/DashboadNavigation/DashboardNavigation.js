@@ -6,6 +6,7 @@ const DashboardNavigation =()=>{
     return(
         <nav  className="navbar">
         <ul>
+            
             <li><NavLink activeClassName="nav-link-selected" to="/categories/all">All</NavLink ></li>
             <li><NavLink activeClassName="nav-link-selected" to="/categories/Cat">Cats</NavLink ></li>
             <li><NavLink activeClassName="nav-link-selected" to="/categories/Dog">Dogs</NavLink ></li>
@@ -21,7 +22,7 @@ const DashboardNavigation =()=>{
             
             `}</style>
     </nav>
-
+      
     );
 }
 
